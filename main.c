@@ -8,7 +8,6 @@
 #define KEY1 "25558361457"
 
 #define diagFF(cond) {if(cond) {printf("Runtime error!\n"); return -1;}}
-//#define diagFF(cond) cond;
 
 typedef struct
 {
