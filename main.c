@@ -5,8 +5,10 @@
 #define ARRAY_Y 5
 #define ARRAY_STR "4911881785088516338545977"
 
-//#define diagFF(cond) if(!cond) {printf("Runtime error!\n"); return -1;}
-#define diagFF(cond) cond;
+#define KEY1 "25558361457"
+
+#define diagFF(cond) {if(cond) {printf("Runtime error!\n"); return -1;}}
+//#define diagFF(cond) cond;
 
 typedef struct
 {
