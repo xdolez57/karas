@@ -12,6 +12,9 @@ typedef enum
   cmd_quit         = 4
 } t_cmd;
 
-void getCmd(t_cmd *command, int *x, int *y);
+void ui_getCmd(t_cmd *command,
+               int   *x,
+               int   *y
+	       );
 
 #endif /* __UI_H__ */

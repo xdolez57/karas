@@ -1,6 +1,8 @@
+#define __UI_INTERNAL__
+
 #include "ui.h"
 
-void getCmd(t_cmd *command, int *x, int *y)
+void ui_getCmd(t_cmd *command, int *x, int *y)
 {
   char command_raw, x_raw;
 
@@ -13,26 +15,27 @@ void getCmd(t_cmd *command, int *x, int *y)
   switch(command_raw)
   {
     case 'l':
-    *command = cmd_rotate_left;
-    break;
-    
+      *command = cmd_rotate_left;
+      break;
+  
     case 'r':
-    *command = cmd_rotate_right;
-    break;
+      *command = cmd_rotate_right;
+      break;
 
     case 's':
-    *command = cmd_select;
-    break;
+      *command = cmd_select;
+      break;
 
     case 'q':
-    *command = cmd_quit;
-    break;
+      *command = cmd_quit;
+      break;
 
     default:
-    printf("Unknown command!\n"\
-           "Exiting the program...\n");
+      printf("Unknown command!\n"\
+             "Exiting the program...\n");
 
-    *command = cmd_quit;
-    break;
+      *command = cmd_quit;
+      break;
   }
 }
+
