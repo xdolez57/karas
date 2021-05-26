@@ -1,11 +1,19 @@
 COMPILER=gcc
 STD=c99
-FLAGS=-Wall -Wextra -pedantic
+COMPILEFLAGS=-c -Wall -Wextra -pedantic
+LINKFLAGS=-Wall -Wextra -pedantic
 
 all: run
 
-run: main.c
-	$(COMPILER) -std=$(STD) $(FLAGS) -o $@ $<
+main.o: main.c main.h
+	$(COMPILER) -std=$(STD) $(COMPILEFLAGS) -o $@ $<
+
+ui.o: ui.c ui.h
+	$(COMPILER) -std=$(STD) $(COMPILEFLAGS) -o $@ $<
+
+run: main.o ui.o
+	$(COMPILER) -std=$(STD) $(LINKFLAGS) -o $@ $^
 
 clean:
 	rm run
+	rm *.o

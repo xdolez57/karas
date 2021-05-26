@@ -1,13 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "main.h"
+#include "ui.h"
 
 #define ARRAY_X 5
 #define ARRAY_Y 5
 #define ARRAY_STR "4911881785088516338545977"
 
 #define KEY1 "25558361457"
+
+#define CMD_LENGTH 3
 
 #define diagFF(cond) {if(cond) {printf("Runtime error!\n"); return -1;}}
 
@@ -111,14 +111,21 @@ void print(t_array *array) {
   printf("\n");
 }
 
+
 int main(void)
 {
   t_array array;
+  t_cmd command = cmd_no_command;
+  int x, y;
 
   diagFF(init(&array, ARRAY_X, ARRAY_Y, ARRAY_STR, (int)(sizeof(ARRAY_STR) / sizeof(char))));
 
-  print(&array);
+  while (command != cmd_quit) {
+    getCmd(&command, &x, &y);
+    printf("command: %d, x: %d, y: %d\n", (int)command, x, y);
+  }
 
+  print(&array);
   free((void *)array.data);
 
   return 0;

@@ -1,6 +1,9 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef struct
 {
   int num;
@@ -28,4 +31,4 @@ void rotate_r(	t_array	*array);
 
 void print(	t_array	*array);
 
-#endif
+#endif  /* __MAIN_H__ */
