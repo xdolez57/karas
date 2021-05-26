@@ -7,9 +7,20 @@
 
 #define KEY1 "25558361457"
 
-#define CMD_LENGTH 3
+#define GPS_LENGTH 12
 
 #define diagFF(cond) {if(cond) {printf("Runtime error!\n"); return -1;}}
+
+char gps[GPS_LENGTH];
+
+void gpsInit(void)
+{
+  int i;
+
+  for (i = 0; i < GPS_LENGTH; i++) {
+    gps[i] = ' ';
+  }
+}
 
 int init(t_array *array, int size_x, int size_y, char *array_init, int init_size) {
 
@@ -108,6 +119,23 @@ void selectItem(t_array *array,
 }
 
 void print(t_array *array) {
+  printGPS();
+  printKey();
+  printf("\n");
+  printArray(array);
+}
+
+void printGPS(void) {
+  printf("GPS: N49°11.853 E16°38.418\n");
+  printf("GPS final: N49 1%c.%c%c%c%c%c, E16 3%c.%c%c%c%c%c\n", gps[0], gps[1], gps[2], gps[3], gps[4], gps[5],
+                                                                gps[6], gps[7], gps[8], gps[9], gps[10], gps[11]);
+}
+
+void printKey(void) {
+  printf("Key: %s\n", KEY1);
+}
+
+void printArray(t_array *array) {
   t_item (*p_data)[array->size_x] = (t_item (*)[array->size_x])array->data;
 
   for (int i = 0; i < array->size_y; i++) {
@@ -158,6 +186,7 @@ int main(void)
   t_cmd command = cmd_no_command;
   int x, y;
 
+  gpsInit();
   diagFF(init(&array, ARRAY_X, ARRAY_Y, ARRAY_STR, (int)(sizeof(ARRAY_STR) / sizeof(char))));
   print(&array);
 

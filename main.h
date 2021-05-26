@@ -19,6 +19,7 @@ typedef struct
   int size_y;
 } t_array;
 
+void gpsInit(   void);
 int init(	t_array	*array,
 		int 	 size_x,
 		int 	 size_y,
@@ -35,7 +36,10 @@ void selectItem(t_array *array,
                 int      x,
                 int      y);
 
-void print(	t_array	*array);
+void print(     t_array *array);
+void printGPS(  void);
+void printKey(  void);
+void printArray(t_array *array);
 
 void execute(   t_array *array,
                 t_cmd command,
