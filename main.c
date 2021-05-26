@@ -111,6 +111,32 @@ void print(t_array *array) {
   printf("\n");
 }
 
+void executeOperation(t_array *array,
+                      t_cmd    command,
+		      int      x,
+		      int      y)
+{
+  switch (command) {
+    case cmd_rotate_left:
+      rotate_l(array);
+      break;
+
+    case cmd_rotate_right:
+      rotate_r(array);
+      break;
+
+
+    case cmd_select:
+      break;
+
+    default:
+      break;
+  }
+
+  if (command != cmd_quit) {
+    print(array);
+  }
+}
 
 int main(void)
 {
@@ -119,13 +145,13 @@ int main(void)
   int x, y;
 
   diagFF(init(&array, ARRAY_X, ARRAY_Y, ARRAY_STR, (int)(sizeof(ARRAY_STR) / sizeof(char))));
+  print(&array);
 
   while (command != cmd_quit) {
     getCmd(&command, &x, &y);
-    printf("command: %d, x: %d, y: %d\n", (int)command, x, y);
+    executeOperation(&array, command, x, y);
   }
 
-  print(&array);
   free((void *)array.data);
 
   return 0;

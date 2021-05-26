@@ -6,6 +6,7 @@ void getCmd(t_cmd *command, int *x, int *y)
 
   printf(">>");
   scanf("%c %c%d", &command_raw, &x_raw, y);
+  getchar();
 
   *x = x_raw - 'a';
 

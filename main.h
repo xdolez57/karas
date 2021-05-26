@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "ui.h"
+
 typedef struct
 {
   int num;
@@ -30,5 +32,10 @@ void mirror_ud(	t_array	*array);
 void rotate_r(	t_array	*array);
 
 void print(	t_array	*array);
+
+void execute(   t_array *array,
+                t_cmd command,
+		int x,
+		int y);
 
 #endif  /* __MAIN_H__ */

@@ -5,7 +5,7 @@ LINKFLAGS=-Wall -Wextra -pedantic
 
 all: run
 
-main.o: main.c main.h
+main.o: main.c main.h ui.h
 	$(COMPILER) -std=$(STD) $(COMPILEFLAGS) -o $@ $<
 
 ui.o: ui.c ui.h
