@@ -1,8 +1,6 @@
 #ifndef __UI_H__
 #define __UI_H__
 
-#include <stdio.h>
-
 typedef enum
 {
   cmd_no_command   = 0,
@@ -17,4 +15,9 @@ void ui_getCmd(t_cmd *command,
                int   *y
 	       );
 
+#ifdef __UI_INTERNAL__
+
+#include <stdio.h>
+
+#endif /* __UI_INTERNAL__ */
 #endif /* __UI_H__ */

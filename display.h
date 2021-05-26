@@ -1,17 +1,19 @@
 #ifndef __DISPLAY_H__
 #define __DISPLAY_H__
 
-#include <stdio.h>
-
 #include "array.h"
-#include "arraydef.h"
 
 #define GPS_LENGTH 12
 
 void display_init(void);
 void display_print(t_array *array);
+void display_setNextNumber(int n);
 
 #ifdef __DISPLAY_INTERNAL__
+
+#include <stdio.h>
+
+#include "arraydef.h"
 
 static void printGPS(void);
 static void printKey(void);

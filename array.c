@@ -120,6 +120,7 @@ void array_selectItem(t_array *array,
 {
   t_item (*p_data)[array->size_x] = (t_item (*)[array->size_x])array->data;
   p_data[x][y].valid = 0;
+  display_setNextNumber(p_data[x][y].num);
 }
 
 void array_print(t_array *array)

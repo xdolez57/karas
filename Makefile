@@ -5,7 +5,7 @@ LINKFLAGS=-Wall -Wextra -pedantic
 
 all: run
 
-array.o: array.c array.h
+array.o: array.c array.h display.h array.h arraydef.h
 	$(COMPILER) -std=$(STD) $(COMPILEFLAGS) -o $@ $<
 
 display.o: display.c display.h array.h arraydef.h

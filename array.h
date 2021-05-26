@@ -1,9 +1,6 @@
 #ifndef __ARRAY_H__
 #define __ARRAY_H__
 
-#include <stdio.h>
-#include <stdlib.h>
-
 typedef struct
 {
   int num;
@@ -41,4 +38,12 @@ void array_selectItem(t_array *array,
 
 void array_print(t_array *array);
 
+#ifdef __ARRAY_INTERNAL__
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "display.h"
+
+#endif  /* __ARRAY_INTERNAL__ */
 #endif  /* __ARRAY_H__ */

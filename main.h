@@ -2,11 +2,15 @@
 #define __MAIN_H__
 
 #include "array.h"
+
+#ifdef __MAIN_INTERNAL__
+
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "arraydef.h"
 #include "display.h"
 #include "ui.h"
-
-#ifdef __MAIN_INTERNAL__
 
 #define diagFF(cond) {if(cond) {printf("Runtime error!\n"); return -1;}}
 
