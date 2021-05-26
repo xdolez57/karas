@@ -31,6 +31,10 @@ void mirror_ud(	t_array	*array);
 
 void rotate_r(	t_array	*array);
 
+void selectItem(t_array *array,
+                int      x,
+                int      y);
+
 void print(	t_array	*array);
 
 void execute(   t_array *array,

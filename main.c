@@ -26,10 +26,10 @@ int init(t_array *array, int size_x, int size_y, char *array_init, int init_size
   array->size_y = size_y;
 
   t_item (*p_data)[array->size_x] = (t_item (*)[array->size_x])array->data;
-  for (int j = 0, k = 0; j < array->size_y; j++) {
-    for (int i = 0; i < array->size_x; i++, k++) {
+  for (int i = 0, k = 0; i < array->size_y; i++) {
+    for (int j = 0; j < array->size_x; j++, k++) {
       p_data[i][j].num   = (int)(array_init[k] - '0');
-      p_data[i][j].valid = 0;
+      p_data[i][j].valid = 1;
     }
   }
 
@@ -100,11 +100,24 @@ void rotate_l(t_array *array) {
   transpose(array);
 }
 
+void selectItem(t_array *array,
+                int      x,
+                int      y) {
+  t_item (*p_data)[array->size_x] = (t_item (*)[array->size_x])array->data;
+  p_data[x][y].valid = 0;
+}
+
 void print(t_array *array) {
   t_item (*p_data)[array->size_x] = (t_item (*)[array->size_x])array->data;
-  for (int j = 0; j < array->size_y; j++) {
-    for (int i = 0; i < array->size_x; i++) {
-      printf("%d ", p_data[i][j].num);
+
+  for (int i = 0; i < array->size_y; i++) {
+    for (int j = 0; j < array->size_x; j++) {
+      if (p_data[i][j].valid) {
+	printf("%d ", p_data[i][j].num);
+      }
+      else {
+	printf("  ");
+      }
     }
     printf("\n");
   }
@@ -127,6 +140,7 @@ void executeOperation(t_array *array,
 
 
     case cmd_select:
+      selectItem(array, x, y);
       break;
 
     default:
