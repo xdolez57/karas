@@ -10,15 +10,14 @@ typedef struct
 typedef struct
 {
   t_item *data;
-  int size_x;
-  int size_y;
+  int     size_x;
+  int     size_y;
 } t_array;
 
 int  array_init(t_array	*array,
                 int      size_x,
                 int      size_y,
-                char    *array_init,
-                int      init_size
+                char    *array_init
 		);
 
 void array_transpose(t_array *array);

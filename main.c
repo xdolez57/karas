@@ -17,7 +17,7 @@ int main(void)
 static int main_init(t_array *array)
 {
   display_init();
-  diagFF(array_init(array, ARRAY_X, ARRAY_Y, ARRAY_STR, (int)(sizeof(ARRAY_STR) / sizeof(char))));
+  diagFF(array_init(array, ARRAY_X, ARRAY_Y, ARRAY_STR));
 
   return 0;
 }

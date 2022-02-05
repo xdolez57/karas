@@ -4,6 +4,7 @@
 
 static char gps[GPS_LENGTH];
 static int  idx;
+static char keylabel[] = KEYLABEL;
 
 void display_init(void)
 {
@@ -39,7 +40,19 @@ static void printGPS(void)
 
 static void printKey(void)
 {
-  printf("Key: %s\n", KEY1);
+  printf("%s%s\n", KEYLABEL, KEY1);
+  printStep();
 }
 
+static void printStep(void)
+{
+  int i;
+
+  for(i = 0; i < (idx + (int)strlen(keylabel)); i++)
+  {
+    printf(" ");
+  }
+
+  printf("^");
+}
 

@@ -12,11 +12,15 @@ void display_setNextNumber(int n);
 #ifdef __DISPLAY_INTERNAL__
 
 #include <stdio.h>
+#include <string.h>
 
 #include "arraydef.h"
 
+#define KEYLABEL "Key: "
+
 static void printGPS(void);
 static void printKey(void);
+static void printStep(void);
 
 #endif /* __DISPLAY_INTERNAL__ */
 #endif /* __DISPLAY_H__ */

@@ -5,12 +5,14 @@
 void ui_getCmd(t_cmd *command, int *x, int *y)
 {
   char command_raw, x_raw;
+  int y_raw;
 
   printf(">>");
-  scanf("%c %c%d", &command_raw, &x_raw, y);
+  scanf("%c %c%d", &command_raw, &x_raw, &y_raw);
   getchar();
 
   *x = x_raw - 'a';
+  *y = y_raw - 1;
 
   switch(command_raw)
   {

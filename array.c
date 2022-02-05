@@ -2,13 +2,8 @@
 
 #include "array.h"
 
-int array_init(t_array *array, int size_x, int size_y, char *array_init, int init_size)
+int array_init(t_array *array, int size_x, int size_y, char *array_init)
 {
-  if (init_size < (size_x * size_y))
-  {
-    return -1;
-  }
-
   array->data = malloc(sizeof(t_item) * size_x * size_y);
 
   if (array->data == NULL)
